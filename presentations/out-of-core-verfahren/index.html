@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Out-of-core Verfahren</title>
+
+	<link rel="stylesheet" href="../../dist/reset.css">
+	<link rel="stylesheet" href="../../dist/reveal.css">
+	<link rel="stylesheet" href="styles/style.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-auto-animate>
+				<h2 data-id="title1" style="font-size: 75px"> Out-of-core Verfahren</h2>
+			</section>
+
+			<section data-auto-animate>
+				<h2 class="header" data-id="title1">Out-of-core Verfahren</h2>
+				<h2 style="text-transform: none; text-align: left;">Inhalt:</h2>
+				<ol>
+					<li class="fragment">Definition</li>
+					<li class="fragment">Verschiedene Verfahren</li>
+					<ul class="fragment">
+						<li>LOD</li>
+						<li>Visibility Culling</li>
+						<li>ressource management</li>
+					</ul>
+					<li class="fragment">Implementation eines ressource-managers</li>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="title1" class="header"> Out-of-core Verfahren</h2>
+				<h4 style="text-transform: none; text-align: left;">Definition:</h4>
+				<ul>
+					<li class="fragment">Erweiterung des Arbeitssatzes</li>
+					<li class="fragment">Verwaltung der Daten</li>
+					<li class="fragment">Vereinfachung der Daten</li>
+					<li class="fragment">Verringerung des Datensatzes</li>
+				</ul>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="title1" class="header"> Out-of-core Verfahren</h2>
+				<h2 data-id="title2">Verfahrensarten</h2>
+				<ul>
+					<li class="fragment">Geometrische Vereinfachung</li>
+					<li class="fragment">Vereinfachung des Arbeitssatzes</li>
+					<li class="fragment">Verwalten von Daten und Ressourcen</li>
+				</ul>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
+					<p>Probleme:</p>
+					<ul>
+						<li class="fragment"> Die volle komeplexität eines Objektes muss nicht immer hilfreich sein</li>
+						<li class="fragment"> Verschwendung von ressourcen für volle berechnung von jedem Objekt</li>
+					</ul>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
+					<p style="text-align: left;">Lösung:</p>
+					<li>Verschiedene Komplexitätsstufen zur Verfügung stellen</li>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
+					<p style="text-align: left;">Nachteil:</p>
+					<li>Vergrößerung des Arbeitssatzes</li>
+					<li class="fragment">Nicht geeignet für große Objekte</li>
+				</section>
+			</section>
+
+			<section>
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<h2 style="text-transform: none;">Visibility Culling</h2>
+					<p style="text-align: left;">Probleme:</p>
+					<li class="fragment"> Nicht alle Objekte in der Szene sind immer sichtbar.</li>
+					<li class="fragment"> Nicht alle Teile eines Objektes sind immer sichtbar.</li>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<p style="text-align: left;">Lösung:</p>
+					<ul class="fragment">
+						<li>View-frustum-culling</li>
+						<li>Back-face-culling</li>
+						<li>Occlusion-culling</li>
+					</ul>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="title1" class="header">Out-of-core Verfahrensarten</h2>
+					<p style="text-align: left;">View-frustum-culling:</p>
+					<ul>
+						<li></li>
+					</ul>
+				</section>
+			</section>
+
+			</section>
+		</div>
+	</div>
+
+	<script src="../../dist/reveal.js"></script>
+	<script src="../../plugin/notes/notes.js"></script>
+	<script src="../../plugin/markdown/markdown.js"></script>
+	<script src="../../plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

@@ -20,145 +20,166 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
+
+			<!-- Title -->
 			<section data-auto-animate>
-				<h2 data-id="title1" style="font-size: 75px"> Out-of-core Verfahren</h2>
+				<h2 class="r-fit-text" sytle="color: grey;">Out-of-core Verfahren</h2>
+				<p> von Marius Reddig</p>
 			</section>
 
+			<!-- Contents -->
 			<section data-auto-animate>
-				<h2 class="header" data-id="title1">Out-of-core Verfahren</h2>
-				<h2 style="text-transform: none; text-align: left;">Inhalt:</h2>
-				<ol>
-					<li class="fragment">Definition</li>
-					<li class="fragment">Verschiedene Verfahren</li>
-					<ul class="fragment">
-						<li>LOD</li>
-						<li>Visibility Culling</li>
-						<li>ressource management</li>
-					</ul>
-					<li class="fragment">Implementation eines ressource-managers</li>
+				<section data-auto-animate>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2 class="fade-in">Inhalt</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Inhalt</h2>
+					<li class="fragment" style="text-align: left;">Definition</li>
+					<li class="fragment" style="text-align: left;">Daten-Verwaltung</li>
+					<li class="fragment" style="text-align: left;">Verwaltungs Algorithmen</li>
+					<li class="fragment" style="text-align: left;">Hybrder Ansatz</li>
+					<li class="fragment" style="text-align: left;">Anderes</li>
+					<li class="fragment" style="text-align: left;">Quellen</li>
+				</section>
 			</section>
 
+			<!-- Definiton -->
 			<section data-auto-animate>
-				<h2 data-id="title1" class="header"> Out-of-core Verfahren</h2>
-				<h4 style="text-transform: none; text-align: left;">Definition:</h4>
-				<ul>
-					<li class="fragment">Erweiterung des Arbeitssatzes</li>
-					<li class="fragment">Verwaltung der Daten</li>
-					<li class="fragment">Vereinfachung der Daten</li>
-					<li class="fragment">Verringerung des Datensatzes</li>
-				</ul>
+				<section>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2 class="fade-in">Definiton</h2>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack r-stretch">
+						<!-- the plane file size is 12GB big -->
+						<img class="fragment fade-out" src="media/Boing-747/plane-01" height="60%" data-fragment-index="0">
+						<img class="fragment current-visible" src="media/Boing-747/engine-01" height="60%" data-fragment-index="0">
+						<img class="fragment current-visible" src="media/Boing-747/engine-07" height="60%">
+						<img class="fragment " src="media/Boing-747/cockpit-01" height="60%">
+					</div>
+					<p>[1]</p>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Definiton</h2>
+					<p style="text-transform: none; text-align: left;">Lösungsansätze:</p>
+					<ul>
+						<li class="fragment" style="text-align: left;">Erweiterung des Arbeitssatzes</li>
+						<li class="fragment" style="text-align: left;">Verwaltung der Daten</li>
+						<li class="fragment" style="text-align: left;">Vereinfachung der Daten</li>
+						<li class="fragment" style="text-align: left;">Verringerung des Datensatzes</li>
+					</ul>
+				</section>
 			</section>
 
+			<!-- Traditional approach -->
 			<section data-auto-animate>
-				<h2 data-id="title1" class="header"> Out-of-core Verfahren</h2>
-				<h2 data-id="title2">Verfahrensarten</h2>
-				<ul>
-					<li class="fragment">Geometrische Vereinfachung</li>
-					<li class="fragment">Vereinfachung des Arbeitssatzes</li>
-					<li class="fragment">Verwalten von Daten und Ressourcen</li>
-				</ul>
-			</section>
-
-			<section>
 				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
-					<p>Probleme:</p>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2>Datenverwaltung</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Datenverwaltung</h2>
 					<ul>
-						<li class="fragment"> Die volle komeplexität eines Objektes muss nicht immer hilfreich sein</li>
-						<li class="fragment"> Verschwendung von ressourcen für volle berechnung von jedem Objekt</li>
+						<li class="fragment" style="text-align: left;">Verwalten zwischen in-core und out-of-core Daten</li>
+						<li class="fragment" style="text-align: left;">Wenig Latenz zwischen Datenanfrage und Bereitstellung</li>
+						<li class="fragment" style="text-align: left;">Effizienter Austausch von Daten</li>
 					</ul>
 				</section>
 
 				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
-					<p style="text-align: left;">Lösung:</p>
-					<li>Verschiedene Komplexitätsstufen zur Verfügung stellen</li>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 data-id="LOD" style="text-transform: none;">"level of detail" (LOD)</h2>
-					<p style="text-align: left;">Nachteil:</p>
-					<li>Vergrößerung des Arbeitssatzes</li>
-					<li class="fragment">Nicht geeignet für große Objekte</li>
-				</section>
-			</section>
-
-			<section>
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 style="text-transform: none;">Visibility Culling</h2>
-					<p style="text-align: left;">Probleme:</p>
-					<li class="fragment"> Nicht alle Objekte in der Szene sind immer sichtbar.</li>
-					<li class="fragment"> Nicht alle Teile eines Objektes sind immer sichtbar.</li>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<p style="text-align: left;">Lösungen:</p>
-					<ul class="fragment">
-						<li class="fragment">View-frustum-culling</li>
-						<li class="fragment">Back-face-culling</li>
-						<li class="fragment">Occlusion-culling</li>
-					</ul>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 style="text-transform: none;">View-frustum-culling</h2>
+					<h2 data-id="title" class="header">Datenverwaltung</h2>
+					<p>Was braucht die Verwaltungsschicht?</p>
 					<ul>
-						<li>Sicht des Nutzers wird mit Hilfe eines Frustums dargestellt.</li>
-						<li>Objekte außerhalb des Frustums müssen nicht berechnet werden.</li>
+						<li class="fragment" style="text-align: left;">Verwalten zwischen in-core und out-of-core Daten</li>
+						<li class="fragment" style="text-align: left;">Wenig Latenz zwischen Datenanfrage und Bereitstellung</li>
+						<li class="fragment" style="text-align: left;">Effizienter Austausch von Daten</li>
 					</ul>
 				</section>
 
 				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 style="text-transform: none;">Back-face-culling</h2>
-					<ul>
-						<li>Nutzer sehen nur ein Teil des Objektes</li>
-						<li>Nur Sichtbare Teile eines Objektes werden berechnet.</li>
-					</ul>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 style="text-transform: none;">Occlusion-culling</h2>
-					<ul>
-						<li>Objekte können dur andere Objekte verdeckt werden.</li>
-						<li>Nur sichtbare Objekte müssen berechnet werden.</li>
-					</ul>
-				</section>
-
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 style="text-transform: none;">Implementierung von Visibility-culling</h2>
-					<ul>
-						<li>View-frustum- und Back-face-culling sind recht simpel zu implementieren.</li>
-						<li>Occlusion culling bedarf einer komplexeren Implementierung.</li>
-					</ul>
+					<div class="r-stack r-stretch">
+						<img class="fragment fade-out" src="media/Data-management-system/system.svg" height="60%"
+							data-fragment-index="0" />
+						<img class="fragment current-visible" src="media/Data-management-system/datenverwaltung.svg" height="60%"
+							data-fragment-index="0" />
+						<img class="fragment" src="media/Data-management-system/data-manager.svg" style="height:400px;" />
+					</div>
+					<p>[1]</p>
 				</section>
 			</section>
 
-			<section>
-				<section data-auto-animate>
-					<h2 data-id="title2" class="header">Verfahrensarten</h2>
-					<h2 data-id="title3">Datenverwaltung</h2>
-					<ul>
-						<li>Verwalten von Daten innerhalb und außserhalb des Kernes.</li>
-					</ul>
-				</section>
-			</section>
-
+			<!-- Traditional algorihms -->
 			<section data-auto-animate>
-				<h2 data-id="title3" class="header">Datenverwaltung</h2>
-				<h2 data-id="title4">Implementierung</h2>
+				<section>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2>Verwaltungs Algorithmen</h2>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack r-stretch">
+						<img class="fragment fade-out" src="media/Page-describtor/page-desc-01.svg" height="60%"
+							data-fragment-index="0" />
+						<img class="fragment current-visible" src="media/Page-describtor/page-desc-02.svg" height="60%"
+							style="margin-bottom: 19%;" data-fragment-index="0" />
+						<img class="fragment current-visible" src="media/Page-describtor/page-desc-03.svg" height="60%" />
+						<img class="fragment current-visible" src="media/Page-describtor/page-desc-04.svg" height="60%" />
+						<img class="fragment current-visible" src="media/Page-describtor/page-desc-05.svg" height="60%" />
+						<img class="fragment" src="media/Page-describtor/page-desc-06.svg" style="height:400px;" />
+					</div>
+					<p>[1]</p>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack r-stretch">
+						<img class="fragment fade-out" src="media/lru/lru-01.svg" height="60%" data-fragment-index="0" />
+						<img class="fragment current-visible" src="media/lru/lru-02.svg" height="60%" style="margin-top: 17.43%;"
+							data-fragment-index="0" />
+						<img class="fragment" src="media/lru/lru-03.svg" style="height:400px;" />
+					</div>
+					<p>[1]</p>
+				</section>
 			</section>
 
+			<!-- Hybrid approach -->
 			<section data-auto-animate>
-				<h2 data-id="ende">Ende</h2>
+				<section data-auto-animate>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2 data-id="title">Hybrider Ansatz</h2>
+				</section>
+
+				<section data-auto-animate>
+					<div class="r-stack r-stretch">
+						<img class="fragment fade-out" src="media/Data-management-system/system.svg" height="60%"
+							data-fragment-index="0" />
+						<img class="fragment" src="media/Data-management-system/multiple-ressources.svg" style="height:400px;"
+							data-fragment-index="0" />
+					</div>
+					<p>[1]</p>
+				</section>
+
+			</section>
+
+			<!-- Data modification -->
+			<section data-auto-animate>
+				<section>
+					<h2 class="header" data-id="title">Out-of-core Verfahren</h2>
+					<h2 data-id="title">Daten Modifikation</h2>
+				</section>
+			</section>
+
+			<!-- End -->
+			<section data-auto-animate>
+				<h2 data-id="ende">Vielen Dank für ihre Zeit</h2>
+			</section>
+
+			<!-- Sources -->
+			<section data-auto-animate>
+				<h2 data-id="ende">Quellen</h2>
 			</section>
 		</div>
 	</div>

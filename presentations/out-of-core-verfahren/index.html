@@ -40,7 +40,7 @@
 					<li class="fragment" style="text-align: left;">Daten-Verwaltung</li>
 					<li class="fragment" style="text-align: left;">Verwaltungs Algorithmen</li>
 					<li class="fragment" style="text-align: left;">Hybrder Ansatz</li>
-					<li class="fragment" style="text-align: left;">Anderes</li>
+					<li class="fragment" style="text-align: left;">Daten Modification</li>
 					<li class="fragment" style="text-align: left;">Quellen</li>
 				</section>
 			</section>
@@ -162,13 +162,52 @@
 					<p>[1]</p>
 				</section>
 
+				<section data-auto-animate>
+					<img class="r-stretch" src="media/hybrid-manager/hybrid-system.svg" height="60%" />
+					<p>[2]</p>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Hybrider Ansatz</h2>
+					<ol>
+						<li class="fragment">Jobs werden in verschiedene Kernels sortiert.</li>
+						<li class="fragment">Wenn ein Prozessor frei ist wird der scheduler ausgefürt.</li>
+						<li class="fragment">Der Scheduler sammelt Informationen über die Jobs</li>
+						<li class="fragment">Der passendste Job wird dem Prozessor übergeben</li>
+					</ol>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Hybrider Ansatz</h2>
+					<p>Mögliche Gewichtungen für das scheduling von Jobs</p>
+					<ul>
+						<li class="fragment">werden Daten benötigt</li>
+						<li class="fragment">Liegt die data innerhalb der GPU</li>
+						<li class="fragment">Liegt die data in einer anderen GPU</li>
+						<li class="fragment">Wird der Processor für den Job bevorzugt</li>
+					</ul>
+				</section>
 			</section>
 
 			<!-- Data modification -->
 			<section data-auto-animate>
-				<section>
-					<h2 class="header" data-id="title">Out-of-core Verfahren</h2>
-					<h2 data-id="title">Daten Modifikation</h2>
+				<section data-auto-animate>
+					<h2 class="header">Out-of-core Verfahren</h2>
+					<h2>Daten Modifikation</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h2 class="header">Daten Modifikation</h2>
+					<p>Daten Modifikaion kann in zwei Gruppen Unterteilt werden:</p>
+					<ul>
+						<li class="fragment">Die Daten vereinfachen</li>
+						<li class="fragment">Den Datensatz vereinfachen</li>
+					</ul>
+				</section>
+
+				<section data-auto-animate>
+					<img class="r-stretch" src="media/data-modification/culling.svg" height="60%" />
+					<p>[3]</p>
 				</section>
 			</section>
 
